@@ -1,0 +1,36 @@
+# My Arch Dotfiles
+
+Did this a few years back for my neovim config but I absolutely HATED the stow experience.
+So we are back, better and bolder than ever. This time with a simple shell script to copy some files to the git repo. Why overcomplicate things?
+
+| **Module**          | **Name**  |
+|---------------------|-----------|
+| Window manager      | Sway      |
+| Terminal            | foot      |
+| Display manager     | ly        |
+| Text editor         | nvim      |
+| Application launcer | rofi      |
+| File manager        | yazi      |
+| Status bar          | waybar    |
+| Notification daemon | swaync    |
+| Rice Flexing        | fastfetch |
+
+## Installation
+
+Ah, no need to worry about creating working symlinks. Man I hate symlinks. "Hey dude yeah u just need to replicate the file structure inside each folder, no big deal!". Just stop it.
+
+Just clone the repo and copy stuff from .config to your config
+```
+git clone https://github.com/Raw-Mutton/dotfiles.git
+cp -ri dotfiles/.config/* ~/.config
+```
+
+Maybe a some point there will be a more sophisticated install script?
+
+## ToDo
+
+The infamous todo list. I'll add something here soon. Trust me.
+
+## Screenshots
+
+Coming Soon, I hope. If there is anything to show off...
