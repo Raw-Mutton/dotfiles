@@ -18,7 +18,7 @@ So we are back, better and bolder than ever. This time with a simple shell scrip
 ### Wallpapers
 
 There are some handy dandy wallpaper utilities in the config.
-If you need a good place to get pristine quality wallpapers legitimately for free, might I suggest [Artvee](artvee.com), and specifically their Landscape category.
+If you need a good place to get pristine quality wallpapers legitimately for free, might I suggest [Artvee](https://artvee.com), and specifically their Landscape category.
 This method is also a foolproof way to avoid those stupid ass AI generated lofi anime wallpapers.
 
 ## Installation
