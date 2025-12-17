@@ -1,0 +1,241 @@
+[{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "spacing": 5, 
+
+    "modules-left": [
+        "group/Utilities",
+        "group/workspaces",
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "group/cpuram",
+	"pulseaudio",
+	"backlight",
+        "group/system"
+    ],
+
+
+    "custom/openbracket": {
+        "format": "[",
+        "tooltip": false
+    },
+    "custom/closebracket": {
+        "format": "]",
+        "tooltip": false
+    },
+    "custom/split": {
+      "format": "|",
+      "tooltip": false
+    },
+
+    "group/Utilities":{
+        "orientation": "horizontal",
+        "modules":[
+            "custom/openbracket",
+            "custom/arch",
+            "idle_inhibitor",
+	    "custom/split",
+	    "custom/uptime",
+            "custom/closebracket"
+        ]
+    },
+    "custom/arch": {
+         "format": "󰣇",
+        "tooltip": false,
+         "on-click": "rofi -show drun"
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+	"timeout": 60,
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+
+    "custom/uptime": {
+    	"format": "up {}",
+	"exec": "uptime -p | sed 's/up //; s/ days/d/; s/ hours/h/; s/ minutes/m/'",
+	"interval": 60
+    },
+
+    "group/workspaces":{
+        "orientation": "horizontal",
+        "modules":[
+            "custom/openbracket",
+            "sway/workspaces",
+            "custom/closebracket"
+        ]
+    },
+
+    "sway/workspaces": {
+    	"all-outputs": true,
+	"persistent-workspaces": {
+	    "1": [],
+	    "2": [],
+	    "3": [],
+	    "4": [],
+	    "5": [],
+	},
+    	"format": "{icon}",
+    	"format-icons": {
+	    "focused": "",
+	    "default": "",
+	}
+    },
+
+    "group/windows": {
+        "orientation":"horizontal",
+        "modules":[
+            "custom/openbracket",
+            "sway/window",
+            "custom/closebracket"
+        ]
+    },
+
+    "sway/window": {
+        "format": "{title}",
+	"max-length": 40,
+	"all-outputs": true,
+	"rewrite": {
+	    "* - Mozilla Firefox": "🌎 $1",
+	    "(.*) - nvim": " $1"
+	}
+    },
+
+    "clock": {
+        "format": "{:%a %d %b %H:%M}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+	"locale": "fi_FI.UTF-8",
+	"calendar": {
+	  "mode": "month",
+	  "mode-mon-col": 3,
+	  "on-scroll": 1,
+	  "weeks-pos": "left",
+	  "on-click-right": "mode",
+	  "format": {
+	    "months": "<span color='#bb9af7'>{}</span>",
+	    "days": "<span color='#c0caf5'>{}</span>",
+	    "weeks": "<span color='#7aa2f7'>{}</span>",
+	    "weekdays": "<span color='#9ece6a'>{}</span>",
+	    "today": "<span background='#f7768e' color='#1a1b26'>{}</span>",
+	  },
+	},
+	"actions": {
+	  "on-click-right": "mode",
+	  "on-scroll-up": "shift_down",
+	  "on-scroll-down": "shift_up",
+	},
+    },
+
+    "group/cpuram": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/openbracket",
+            "cpu",
+            "custom/split",
+            "memory",
+            "custom/closebracket"
+        ]
+    },
+    "cpu": {
+        "format": "CPU:{usage}%",
+        "tooltip": false,
+        "interval": 2,
+        "on-click": "foot btop",
+    },
+    "memory":{
+        "format": "RAM:{}%",
+        "tooltip": false,
+        "interval": 2,
+        "on-click": "foot btop",
+    },
+
+    "pulseaudio": {
+        "scroll-step": 5,
+	"max-volume": 100,
+        "format": "{icon}{volume}%",
+        "format-bluetooth": "{icon}{volume}% ",
+        "format-bluetooth-muted": " {icon}",
+        "format-muted": " ",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "default": [" :", " :", " :"]
+        },
+        "on-click": "pavucontrol",
+    },
+
+    "backlight": {
+    	"interval": 2,
+        "format": "{icon}:{percent}%",
+        "format-icons": ["🌙", "🌔", "☀️"],
+        "on-click": "~/.config/waybar/scripts/brightness_slider.sh"  
+    },
+
+    "group/system": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/openbracket",
+            "network",
+	    "bluetooth",
+            "battery",
+            "custom/swaync",
+            "custom/closebracket"
+        ]
+    },
+
+    "network": {
+        "format-wifi": "{icon}",
+        "format-ethernet": "󰈀 LAN",
+        "format-disconnected": "󰖪",
+	"tooltip": true,
+        "tooltip-format": "{ipaddr}\n{essid} ({signalStrength}%)",
+        "on-click": "foot nmtui",
+        "format-icons": [ "󰤯", "󰤟", "󰤢", "󰤥", "󰤨" ]
+    },
+
+    "bluetooth": {
+	// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+	"format": " {status}",
+	"format-disabled": "", // an empty format will hide the module
+	"format-connected": " {num_connections} connected",
+	"tooltip-format": "{controller_alias}\t{controller_address}",
+	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+	"on-click": "foot bluetoothctl"
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-full": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "  {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "on-click": "wlogout"
+    },
+
+    "custom/swaync": {
+      "format": "",
+      "exec": "swaync-client -swb",
+      "on-click": "swaync-client --toggle-panel",
+      "interval": 0
+    },
+
+    "tray": {
+        "icon-size": 14,
+        "spacing": 10
+    }
+}]

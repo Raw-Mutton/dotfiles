@@ -1,0 +1,11 @@
+[Unit]
+Description=Desktop alert of low battery
+
+[Service]
+# oneshot so run once and exit
+Type=oneshot
+ExecStart=/home/wekez/.config/scripts/battery-monitor.sh
+
+[Install]
+# This way, after running systemctl --user enable this.service, the service starts when systemd instance starts
+WantedBy=default.target

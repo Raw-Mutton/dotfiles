@@ -1,0 +1,12 @@
+[Unit]
+Description=Check battery status once every few minutes and warn user
+Requires=alert-battery.service
+
+[Timer]
+# Start 1 min after boot
+OnBootSec=1m
+# Every 10 minutes
+OnUnitActiveSec=10m
+
+[Install]
+WantedBy=timers.target
