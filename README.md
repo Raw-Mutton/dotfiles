@@ -8,7 +8,7 @@ So we are back, better and bolder than ever. This time with a simple shell scrip
 | Window manager      | Sway      |
 | Terminal            | foot      |
 | Display manager     | ly        |
-| Text editor         | nvim      |
+| Text editor         | nvim (based on Kickstart.nvim)      |
 | Application launcer | rofi      |
 | File manager        | yazi      |
 | Status bar          | waybar    |
@@ -32,10 +32,15 @@ cp -ri dotfiles/.config/* ~/.config
 ```
 
 Maybe a some point there will be a more sophisticated install script?
+> Actually no, this is so simple no one should need an install script.
 
 ## ToDo
 
-The infamous todo list. I'll add something here soon. Trust me.
+These lists are dangerous... I won't promise anything!
+
+- [ ] Modify copy script to have option for not committing anything
+- [ ] Modularize nvim config BRAH
+- [ ] Add some tool-based commentary?
 
 ## Screenshots
 
