@@ -1,9 +1,23 @@
+"$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
+
+[mgr]
+show_hidden = true
+
+[preview]
+max_width = 1000
+max_height = 1200
+
 [opener]
 play = [
-  { run = 'firefox "$@"', orphan = true, for = "unix" }
+  { run = 'mpv --force-window "$@"', orphan = true, for = "linux" }
+]
+pdf = [
+  { run = 'firefox "$@"', orphan = true, for = "linux" }
 ]
 
 [open]
-rules = [
+prepend_rules = [
+  { mime = "application/pdf", use = [ "pdf" ] },
   { mime = "{audio,video}/*", use = [ "play" ] }
 ]
+
