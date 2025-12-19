@@ -1,3 +1,6 @@
+# Note that each lua project (obviously) needs its own .stylua file
+# Took me way too long to understand why my indentation was being overwritten every damn time.
+
 column_width = 160
 line_endings = "Unix"
 indent_type = "Spaces"
