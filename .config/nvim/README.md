@@ -30,6 +30,7 @@ Using lazy.nvim
 | alpha            | Greeting screen                 |
 | conform          | Autoformatting                  |
 | autopairs        | Bracket etc. pairing            |
+| autotag          | HTML tag pairing                |
 | blink-cmp        | Code completion & snippets      |
 | gitsigns         | Simple git helpers              |
 | guess-indent     | Better autoindenting            |
@@ -48,7 +49,7 @@ Possibly more to come but trying to keep it clean and relatively simple.
 There are more plugins defined but they are not in use since I'm not sure if
 I need them yet.
 
-## Introduction (The rest is from kickstart)
+## Introduction (The rest is from kickstart, slightly shortened...)
 
 A starting point for Neovim that is:
 
