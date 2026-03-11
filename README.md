@@ -42,7 +42,7 @@ Maybe a some point there will be a more sophisticated install script?
 These lists are dangerous... I won't promise anything!
 
 - [ ] Modify copy script to have option for not committing anything
-- [ ] Modularize nvim config BRAH
+- [x] Modularize nvim config BRAH
 - [ ] Add some tool-based commentary?
 
 ## Screenshots
