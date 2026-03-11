@@ -32,17 +32,9 @@
   "text-empty": "No Notifications",
   "script-fail-notify": true,
   "scripts": {
-    "example-script": {
-      "exec": "echo 'Do something...'",
-      "urgency": "Normal"
-    },
-    "example-action-script": {
-      "exec": "echo 'Do something actionable!'",
-      "urgency": "Normal",
-      "run-on": "action"
-    },
     "notification-sound": {
       "exec": "~/.config/swaync/scripts/notification_sound.sh",
+      "run-on": "receive",
       "app-name": ".*"
     }
   },
