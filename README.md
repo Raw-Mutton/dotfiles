@@ -4,8 +4,8 @@ Did this a few years back for my neovim config but I absolutely HATED the stow e
 So we are back, better and bolder than ever. This time with a simple shell script to copy some files to the git repo. Why overcomplicate things?
 
 <figure>
-    <img src="./screenshots/basic_rice_mar_26.png" alt="Clean looking system with Rosepine terminal theme." style="width:100%">
-    <figcaption>YES I know the colors are clashing but I don't care. Go make your own configurations and stop whining.</figcaption>
+    <img src="./screenshots/rosepine_rice_mar_30.png" alt="Clean looking system with Rosepine terminal theme." style="width:100%">
+    <figcaption>A sight for sore eyes.</figcaption>
 </figure>
 
 ## Building Blocks
