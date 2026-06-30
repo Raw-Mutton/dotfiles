@@ -2,6 +2,7 @@
 
 # Ignore vim-plug stuff to avoid creating submodules
 .config/vim/plugged/**
+.config/vim/autoload/plug.vim
 
 # Useless netrw file
 .config/vim/.netrwhist
