@@ -1,1 +1,2 @@
-vim/plugged/**
+# Ignore vim-plug stuff to avoid creating submodules
+.config/vim/plugged/**
