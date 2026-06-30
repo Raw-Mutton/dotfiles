@@ -1,0 +1,102 @@
+set nocompatible
+filetype plugin indent on
+
+" -----
+" Plugins
+" -----
+
+" Auto-install vim-plug and chosen plugins on a new machine
+" Side note: curl flags:
+" -f: fail with error code 22
+" -L: if requested page has been moved (error 3XX), try again in new location
+" -o: write output to given file instead of stdout
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin()
+
+Plug 'tpope/vim-sensible' " Sensible defaults
+Plug 'vim-airline/vim-airline' " Status bar
+Plug 'vim-airline/vim-airline-themes' " Status bar themes
+Plug 'tpope/vim-commentary' " Quick comment/uncomment binds
+Plug 'tpope/vim-surround' " Surrounding keybinds
+Plug 'junegunn/fzf.vim' " FZF
+Plug 'rose-pine/vim' " Colorscheme
+Plug 'jasonccox/vim-wayland-clipboard' " Use system clipboard?
+
+call plug#end()
+
+packadd hlyank
+
+" ---------------------------------------------
+" Vim Options
+" ---------------------------------------------
+
+let mapleader = " "
+set autoindent			" Default to indenting files
+set backspace=indent,eol,start	" Backspace all characters
+set formatoptions-=t		" Don't add line-breaks for lines over 'textwidth' characters
+set hlsearch			" Highlight search results
+set number			" Line numbers
+set relativenumber		" Relative line numbers
+set nostartofline		" Do not jump to first character with page commands
+set ruler			" Enable the ruler
+set showmatch			" Show matching brackets.
+set showmode			" Show the current mode in status line
+set showcmd			" Show partial command in status line
+set tabstop=2			" Number of spaces <tab> counts for
+set textwidth=80		" 80 columns
+set title			" Set the title
+
+" ---------------------------------------------
+" Theme / Color Scheme
+" ---------------------------------------------
+
+set background=dark
+colorscheme rosepine
+hi Search ctermbg=LightYellow
+
+" ---------------------------------------------
+" Plugin Options
+" ---------------------------------------------
+
+let g:airline_theme = "deus"
+
+:let g:hlyank_duration = 200
+
+" ---------------------------------------------
+" Quick keybinds
+" ---------------------------------------------
+
+" The classic
+nnoremap <Leader>pv :Ex<CR>
+
+" Easier window navigation
+nnoremap <C-h> <C-w><C-h>
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+
+" [e]dit [v]imrc shortcut
+nnoremap <Leader>ev :vsplit $MYVIMRC<CR>
+
+" ---------------------------------------------
+" FZF keybinds
+" ---------------------------------------------
+
+" [s]earch [f]iles in current dir
+nnoremap <Leader>sf :Files ./<CR>
+" [s]earch [r]ipgrep
+nnoremap <Leader>sg :Rg<CR>
+" [s]earch git [status]
+nnoremap <Leader>ss :GFiles?<CR>
+" [s]earch [k]eymaps (normal mode)
+nnoremap <Leader>sk :Maps<CR>
+" [s]earch [c]olorschemes
+nnoremap <Leader>sc :Colors<CR>
+" [s]earch [h]istory (v:oldfiles and open buffers)
+nnoremap <Leader>sh :History<CR>
